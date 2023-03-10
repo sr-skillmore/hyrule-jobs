@@ -8,17 +8,22 @@
 
 <script lang="ts">
 // this lesson uses Options API
-import { defineComponent } from "vue";
+import { defineComponent, reactive, toRefs } from "vue";
 
 export default defineComponent({
   name: "App",
   components: {},
-
-  data() {
-    return {
+  setup() {
+    const state = reactive({
       name: "Link",
       age: 25 as number | string,
-    };
+    });
+
+    // state.name = 999; // cannot change type as detected as string by inference
+    // state.age = "26"; // can be string or number
+    // state.age = 30; // can be string or number
+
+    return { ...toRefs(state) };
   },
   methods: {
     changeName(name: string) {
