@@ -6,6 +6,7 @@
         <h2>{{ job.title }} in {{ job.location }}</h2>
 
         <div class="salary">
+          <img src="../assets/images/rupee.svg" alt="rupee icon" />
           <p>{{ job.salary }} rupees</p>
         </div>
 
